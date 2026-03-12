@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre-Bed Activities</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" onerror="this.remove()">
+<style>body{font-family:'Barlow','Helvetica Neue',Arial,sans-serif}</style>
+<style>
+  :root {
+    --bg:#0f0f0f; --surface:#1a1a1a; --surface2:#222;
+    --border:#2e2e2e; --text:#f0f0f0; --muted:#888; --dim:#555;
+    --accent:#b07bb0; --header-bg:#251a2e;
+    --header-text:#d8b0d8; --hover:rgba(176,123,176,0.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;padding-bottom:40px}
+  .header{background:var(--header-bg);border-bottom:2px solid var(--accent);
+    padding:20px 20px 16px;position:sticky;top:0;z-index:100;
+    box-shadow:0 4px 20px rgba(0,0,0,.6)}
+  .header-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+  .hlabel{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;
+    letter-spacing:3px;text-transform:uppercase;color:var(--accent);opacity:.8}
+  .hdate{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:1px;color:var(--muted)}
+  .htitle{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;
+    line-height:1;letter-spacing:1px;color:var(--header-text)}
+  .hsub{font-size:13px;color:var(--muted);margin-top:4px}
+ .section{margin:16px 16px 0;border-radius:10px;overflow:hidden;
+    border:1px solid var(--border)}
+  .sec-header{padding:10px 16px;display:flex;align-items:center;gap:10px;
+    background:var(--header-bg);border-bottom:1px solid rgba(255,255,255,.06)}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
+  .sec-header h2{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;
+    letter-spacing:2px;text-transform:uppercase;color:var(--header-text)}
+  .sec-time{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:1px;
+    color:var(--muted);margin-left:auto}
+  /* Simple list */
+  .list-body{background:var(--surface)}
+  .list-item{padding:12px 16px 12px 38px;font-size:15px;border-bottom:1px solid var(--border);
+    position:relative;line-height:1.35;transition:background .15s}
+  .list-item:last-child{border-bottom:none}
+  .list-item:hover{background:var(--hover)}
+  .list-item::before{content:'';display:block;width:5px;height:5px;border-radius:50%;
+    background:var(--accent);position:absolute;left:16px;top:18px;opacity:.7}
+  .list-item .note{font-size:13px;color:var(--muted);font-style:italic;display:block;margin-top:2px}
+  /* Two column */
+  .col-headers{display:grid;grid-template-columns:1fr 1fr;padding:6px 16px;
+    background:var(--surface2);border-bottom:1px solid var(--border);gap:12px}
+  .col-header{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;
+    letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
+  .two-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:10px 16px;
+    border-bottom:1px solid var(--border);background:var(--surface);
+    align-items:start;transition:background .15s}
+  .two-row:last-child{border-bottom:none}
+  .two-row:hover{background:var(--hover)}
+  .two-row .name{font-size:15px;font-weight:500;line-height:1.35}
+  .two-row .detail{font-size:14px;color:var(--muted);line-height:1.35}
+  /* Gym exercises */
+  .gym-col-headers{display:grid;grid-template-columns:90px 1fr;padding:6px 16px;
+    background:var(--surface2);border-bottom:1px solid var(--border)}
+  .ex-row{display:grid;grid-template-columns:90px 1fr;padding:11px 16px;
+    border-bottom:1px solid var(--border);align-items:start;
+    background:var(--surface);transition:background .15s}
+  .ex-row:last-child{border-bottom:none}
+  .ex-row:hover{background:var(--hover)}
+  .ex-row.group-start{border-top:1px solid rgba(255,255,255,.06)}
+  .muscle{font-size:11px;font-weight:600;color:var(--accent);text-transform:uppercase;
+    letter-spacing:.5px;padding-top:2px;opacity:.8}
+  .ex-name{font-size:15px;font-weight:500;line-height:1.35}
+
+ /* Dual list stacked */
+.stacked-section{background:var(--surface)}
+.stack-header{padding:8px 16px;background:var(--surface2);
+  border-bottom:1px solid var(--border);border-top:1px solid var(--border);
+  font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--accent);
+  display:flex;align-items:center;gap:8px}
+.stack-header:first-child{border-top:none}
+.sdot{width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.7}
+.stack-item{padding:10px 16px 10px 36px;font-size:15px;border-bottom:1px solid var(--border);
+  position:relative;line-height:1.35;transition:background .15s}
+.stack-item:last-child{border-bottom:none}
+.stack-item:hover{background:var(--hover))}
+.stack-item::before{content:'';display:block;width:5px;height:5px;border-radius:50%;
+  background:var(--accent);position:absolute;left:16px;top:16px;opacity:.5}
+.stack-divider{height:8px;background:var(--bg);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  
+  /* Guidance grid */
+  .guidance-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+  .g-item{background:var(--surface);padding:12px 16px;display:flex;flex-direction:column;gap:3px}
+  .g-key{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+    letter-spacing:1.5px;text-transform:uppercase;color:#c9a84c}
+  .g-val{font-size:13px;color:var(--muted);line-height:1.3}
+  .timestamp{text-align:center;font-size:11px;color:var(--dim);margin-top:24px;letter-spacing:1px}
+  @media(max-width:400px){
+    .htitle{font-size:22px}
+    .ex-row,.gym-col-headers{grid-template-columns:72px 1fr}
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-top">
+    <div class="hlabel">Pre-Bed Activities</div>
+    <div class="hdate">Wednesday, March 11</div>
+  </div>
+  <div class="htitle">Pre-Bed Activities</div>
+  <div class="hsub">Before Sleep</div>
+</div>
+
+<div class="section">
+  <div class="sec-header">
+    <div class="dot"></div>
+    <h2>Pre-Bed Activities</h2>
+    <div class="sec-time">Before Sleep</div>
+  </div>
+  <div class="list-body"><div class="list-item">Lay Down Skull Crushers<span class="note">x100</span></div>
+<div class="list-item">Biceps Curls on Knees<span class="note">x30</span></div>
+<div class="list-item">Lay Down Press Up, Opposite Arm to Shoulder<span class="note">x30 each</span></div>
+<div class="list-item">Skull Crushers Rotate down Palms to face<span class="note">x50</span></div>
+<div class="list-item">Laying Down, Wide Press up to center<span class="note">x30</span></div>
+<div class="list-item">Standing, Single arm behind head<span class="note">x30 each, stretch arm as far as it can go</span></div>
+</div>
+</div>
+<div class="section">
+  <div class="sec-header">
+    <div class="dot"></div>
+    <h2>Pre-Bed Stretches</h2>
+    <div class="sec-time">Before Sleep</div>
+  </div>
+  <div class="stacked-section">
+    <div class="stack-header">
+      <div class="sdot"></div>
+      Standing Stretches
+    </div>
+    <div class="stack-item">Pre-Bed > Standing Stretches</div>
+<div class="stack-item">Floor - Flat Back Glute Bridge Hold and March</div>
+<div class="stack-item">Triceps Stretch over head</div>
+<div class="stack-item">Leg on Bed, front stretch</div>
+<div class="stack-item">Floor - Cat Cow > Childs Pose</div>
+<div class="stack-item">Knee to Chest</div>
+<div class="stack-item">Quad Stretch (Pelican)</div>
+<div class="stack-item">Foot on bed, Knee up Stretch</div>
+<div class="stack-item">Back Bend</div>
+
+    <div class="stack-divider"></div>
+    <div class="stack-header">
+      <div class="sdot"></div>
+      In Bed / Floor
+    </div>
+    <div class="stack-item">Pre-Bed > Bed Stretches</div>
+<div class="stack-item">Cobra on Hands</div>
+<div class="stack-item">Laying down ButterFly:  Open Close then hold Stretch</div>
+<div class="stack-item">Single Knee to Chest</div>
+<div class="stack-item">Ankle & Wrist Movements</div>
+<div class="stack-item">Single Streight Leg Pull in, Flex Foot</div>
+<div class="stack-item">Arm reach streight up and hold x3</div>
+<div class="stack-item">Dead Bug, Heels Tap down when switch</div>
+<div class="stack-item">Opposite Leg Swing over, Rotate</div>
+
+  </div>
+</div>
+<div class="timestamp">Generated 11:59 PM · Wednesday, March 11, 2026</div>
+</body>
+</html>
